@@ -1,21 +1,7 @@
-#include "PlayerNetwork.h"
 #include "GameObject.h"
 #include "GameManager.h"
 #include "GraphicManager.h"
 #include "InputManager.h"
-#include "Player.h"
-#include "Gun.h"
-#include "AssaultRifle.h"
-#include "SniperRifle.h"
-#include "Bullet.h"
-#include "Wall.h"
-#include "Hole.h"
-#include "KillLog.h"
-#include "GunBox.h"
-#include "Pistol.h"
-#include "DieEffect.h"
-#include "Object.h"
-#include "Controller.h"
 
 class GraphicManager;
 class GameManager;
@@ -266,125 +252,7 @@ GameObject * Instantiate(GameObject::TYPE type)
 
 	switch (type)
 	{
-	case GameObject::TYPE::Player:
-		Player * player;
-		player = new Player();
-		player->Init(type);
-		player->SetAnimation(Animation::TYPE::PLAYER_REVERSE_IDLE);
-		player->ID = GameObject::NEED_ID;
-		gameObject = player;
-		break;
 
-	case GameObject::TYPE::PlayerNetwork:
-		PlayerNetwork * player_network;
-		player_network = new PlayerNetwork();
-		player_network->Init(type);
-		player_network->SetAnimation(Animation::TYPE::PLAYER_REVERSE_IDLE);
-		player_network->ID = GameObject::NEED_ID;
-		gameObject = player_network;
-		break;
-
-	case GameObject::Pistol:
-		Pistol * pistol;
-		pistol = new Pistol();
-		pistol->Init(type);
-		pistol->SetAnimation(Animation::TYPE::Pistol);
-		pistol->ID = GameObject::NEED_ID;
-		gameObject = pistol;
-		break;
-
-	case GameObject::AssaultRifle:
-		AssaultRifle * gun;
-		gun = new AssaultRifle();
-		gun->Init(type);
-		gun->SetAnimation(Animation::TYPE::AssaultRifle);
-		gun->ID = GameObject::NEED_ID;
-		gameObject = gun;
-		break;
-
-	case GameObject::SniperRifle:
-		SniperRifle * sniper;
-		sniper = new SniperRifle();
-		sniper->Init(type);
-		sniper->SetAnimation(Animation::TYPE::SniperRifle);
-		sniper->ID = GameObject::NEED_ID;
-		gameObject = sniper;
-		break;
-		             
-	case GameObject::Bullet:
-		Bullet * bullet;
-		bullet = new Bullet();
-		bullet->Init(type);
-		bullet->SetAnimation(Animation::TYPE::Bullet);
-		gameObject = bullet;
-		break;
-
-	case GameObject::Wall:
-		Wall * wall;
-		wall = new Wall;
-		wall->Init(type);
-		wall->SetAnimation(Animation::TYPE::Test3);
-		gameObject = wall;
-		break;
-
-	case GameObject::Hole:
-		Hole * hole;
-		hole = new Hole();
-		hole->Init(type);
-		hole->visible = false;
-		gameObject = hole;
-		break;
-
-	case GameObject::KillLog:
-		KillLog * killlog;
-		killlog = new KillLog();
-		killlog->Init(type);
-		gameObject = killlog;
-		break;
-
-	case GameObject::GunBox:
-		GunBox * gunbox;
-		gunbox = new GunBox();
-		gunbox->Init(type);
-		gunbox->SetAnimation(Animation::TYPE::GunBox);
-		gameObject = gunbox;
-		break;
-
-	case GameObject::DieEffect:
-		DieEffect * dieEffect;
-		dieEffect = new DieEffect();
-		dieEffect->Init(type);
-		dieEffect->SetAnimation(Animation::TYPE::DieEffect);
-		gameObject = dieEffect;
-		break;
-
-	case GameObject::Object:
-		Object * object;
-		object = new Object();
-		object->Init(type);
-		object->SetAnimation(Animation::TYPE::Test3);
-		gameObject = object;
-		break;
-
-	case GameObject::Controller:
-		Controller * control;
-		control = new Controller();
-		control->Init(type);
-		control->SetAnimation(Animation::TYPE::Test3);
-		gameObject = control;
-		break;
-
-	default:
-		GameObject * gobject;
-		gobject = new GameObject();
-		gobject->Init(type);
-		if (type == GameObject::TYPE::TestBackGround)
-			gobject->SetAnimation(Animation::TYPE::Ground);
-		else
-			gobject->SetAnimation(Animation::TYPE::Test3);
-
-		gameObject = gobject;
-		break;
 	}
 
 	GameManager::GetInstance()->pushUpdateList(gameObject);

@@ -72,6 +72,10 @@
     <IncludePath>F:\실험실\C++\팀프로젝트 엔진\inc;E:\실험실\C++\팀프로젝트 엔진\inc;G:\실험실\C++\팀프로젝트 엔진\inc;F:\실험실\C++\팀프로젝트\inc;E:\실험실\C++\팀프로젝트\inc;E:\실험실\C++\MinNet;G:\실험실\C++\2048 Engine\inc;$(IncludePath)</IncludePath>
     <LibraryPath>F:\실험실\C++\팀프로젝트 엔진\lib;E:\실험실\C++\팀프로젝트 엔진\lib;G:\실험실\C++\팀프로젝트 엔진\lib;F:\실험실\C++\팀프로젝트\lib;E:\실험실\C++\팀프로젝트\lib;E:\실험실\C++\MinNet\Debug;G:\실험실\C++\2048 Engine\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Users\ASUS\Documents\GitHub\ginungdehea\2048 Engine\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\ASUS\Documents\GitHub\ginungdehea\2048 Engine\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -117,73 +121,27 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
-    <ClInclude Include="AssaultRifle.h" />
-    <ClInclude Include="BackGround.h" />
-    <ClInclude Include="Bullet.h" />
-    <ClInclude Include="Controller.h" />
-    <ClInclude Include="DieEffect.h" />
-    <ClInclude Include="Emote.h" />
     <ClInclude Include="FontEvent.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GraphicManager.h" />
-    <ClInclude Include="Gun.h" />
-    <ClInclude Include="GunBox.h" />
-    <ClInclude Include="Hole.h" />
     <ClInclude Include="head.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="KeyboardEvent.h" />
-    <ClInclude Include="KillLog.h" />
-    <ClInclude Include="NetworkManager.h" />
-    <ClInclude Include="Object.h" />
-    <ClInclude Include="Pistol.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="PlayerNetwork.h" />
     <ClInclude Include="Scene.h" />
-    <ClInclude Include="Scene_Reflection.h" />
-    <ClInclude Include="Scene_Test.h" />
-    <ClInclude Include="Scene_video.h" />
     <ClInclude Include="Singleton.h" />
-    <ClInclude Include="SniperRifle.h" />
-    <ClInclude Include="SoundEvent.h" />
-    <ClInclude Include="SoundManager.h" />
-    <ClInclude Include="UIManager.h" />
-    <ClInclude Include="Wall.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
-    <ClCompile Include="AssaultRifle.cpp" />
-    <ClCompile Include="BackGround.cpp" />
-    <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="Controller.cpp" />
-    <ClCompile Include="DieEffect.cpp" />
-    <ClCompile Include="Emote.cpp" />
+    <ClCompile Include="FontEvent.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GraphicManager.cpp" />
-    <ClCompile Include="Gun.cpp" />
-    <ClCompile Include="GunBox.cpp" />
-    <ClCompile Include="Hole.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="KeyboardEvent.cpp" />
-    <ClCompile Include="KillLog.cpp" />
-    <ClCompile Include="NetworkManager.cpp" />
-    <ClCompile Include="Object.cpp" />
-    <ClCompile Include="Pistol.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="PlayerNetwork.cpp" />
     <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="Scene_Reflection.cpp" />
-    <ClCompile Include="Scene_Test.cpp" />
-    <ClCompile Include="Scene_Video.cpp" />
-    <ClCompile Include="SniperRifle.cpp" />
-    <ClCompile Include="SoundEvent.cpp" />
-    <ClCompile Include="SoundManager.cpp" />
-    <ClCompile Include="UIManager.cpp" />
-    <ClCompile Include="Wall.cpp" />
     <ClCompile Include="WndProc.cpp" />
     <ClCompile Include="wWinMain.cpp" />
-    <ClCompile Include="FontEvent.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

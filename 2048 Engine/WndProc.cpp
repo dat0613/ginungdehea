@@ -1,10 +1,7 @@
-#include "NetworkManager.h"
 #include "head.h"
 #include "GameManager.h"
 #include "GraphicManager.h"
-#include "SoundManager.h"
 #include "InputManager.h"
-#include "UIManager.h"
 
 LRESULT CALLBACK WndProc(HWND  hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 {
@@ -12,11 +9,8 @@ LRESULT CALLBACK WndProc(HWND  hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 	{
 	case WM_CREATE:
 		InputManager::GetInstance()->Init();
-		SoundManager::GetInstance()->Init();
 		GameManager::GetInstance()->Init(hwnd);
 		GraphicManager::GetInstance()->Init(GameManager::GetInstance()->getDevice());
-		NetworkManager::GetInstance()->Init();
-		UIManager::GetInstance()->Init();
 		GameManager::GetInstance()->GameStart();
 		break;
 
@@ -44,7 +38,6 @@ LRESULT CALLBACK WndProc(HWND  hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 	case WM_DESTROY:
 		GameManager::GetInstance()->Release();
 		InputManager::GetInstance()->Release();
-		SoundManager::GetInstance()->Release();
 		GraphicManager::GetInstance()->Release();
 
 		_CrtDumpMemoryLeaks();

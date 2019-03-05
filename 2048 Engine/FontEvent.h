@@ -9,7 +9,7 @@ using namespace std;
 class FontEvent
 {
 private:
-	
+
 public:
 	char * str;
 	int x;

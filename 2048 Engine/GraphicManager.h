@@ -1,7 +1,6 @@
 #pragma once
 
 #include "GameObject.h"
-#include "FontEvent.h"
 #include <d3d9.h>
 #include <d3dx9.h>
 #include "Singleton.h"
@@ -9,13 +8,13 @@
 #include "InputManager.h"
 #include <list>
 #include "Animation.h"
+#include "FontEvent.h"
 
 class GraphicManager : public Singleton<GraphicManager>
 {
 private:
 	
 	LPDIRECT3DDEVICE9 device;
-
 	std::queue<FontEvent *> fontEventQ;
 
 	std::list<GameObject *> *renderTargetList;
@@ -35,7 +34,6 @@ private:
 	std::vector<LPDIRECT3DTEXTURE9> TextureArray;
 	
 	void InitFont();
-	
 	void pushFontQ(FontEvent * evnt);
 
 	int Shake;

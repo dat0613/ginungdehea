@@ -1,7 +1,6 @@
-#include "NetworkManager.h"
 #include "GraphicManager.h"
 #include "head.h"
-#include "KillLog.h"
+#include "FontEvent.h"
 
 #include <algorithm>
 #include <iostream>
@@ -341,63 +340,6 @@ void GraphicManager::Render()
 
 				sprite->Draw(texture, &rc, NULL, NULL, D3DCOLOR_ARGB(100, 0, 0, 0));
 				sprite->End();
-			}
-
-			if (nowObject->getType() == GameObject::KillLog)
-			{
-
-				auto top_space = 10.0f;
-				auto left_space = 10.0f;
-
-				auto kill_log = (KillLog *)nowObject;
-
-				auto killer_color = kill_log->GetKillerColor();
-				auto victim_color = kill_log->GetVictimColor();
-
-				D3DXVECTOR2 position = { 0.0f,0.0f };
-				D3DXMATRIX kill_log_matrix;
-				auto kill_log_position = kill_log->getPosition();
-
-				position.x = kill_log_position.x + left_space;
-				position.y = kill_log_position.y + top_space;
-
-				//RenderText(position, D3DXCOLOR(255, 0, 0, 255), 0, "%d", killerID);
-
-				RECT rc = { 0,9,50,50 + 9 };
-				D3DXMatrixTranslation(&kill_log_matrix, position.x, position.y, 0.0f);
-				
-				sprite->SetTransform(&kill_log_matrix);
-
-				sprite->Begin(D3DXSPRITE_ALPHABLEND);
-
-				device->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_POINT);
-				device->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_POINT);
-				device->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_POINT);
-
-				sprite->Draw(TextureArray[(int)killer_color * 3], &rc, NULL, NULL, D3DCOLOR_ARGB(255, 255, 255, 255));
-				sprite->End();
-
-
-
-				position.x = kill_log_position.x + kill_log->getSpriteSize().x - left_space - rc.right - rc.left;
-				D3DXMatrixTranslation(&kill_log_matrix, position.x, position.y, 0.0f);
-
-				//RenderText(position, D3DXCOLOR(255, 0, 0, 255), 0, "%d", VictimID);
-
-				sprite->SetTransform(&kill_log_matrix);
-
-				sprite->Begin(D3DXSPRITE_ALPHABLEND);
-
-				device->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_POINT);
-				device->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_POINT);
-				device->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_POINT);
-
-				sprite->Draw(TextureArray[(int)victim_color * 3], &rc, NULL, NULL, D3DCOLOR_ARGB(255, 255, 255, 255));
-				sprite->End();
-
-
-			
-			
 			}
 		}
 

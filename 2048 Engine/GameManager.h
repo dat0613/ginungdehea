@@ -1,13 +1,12 @@
 #pragma once
 
 #include "GameObject.h"
-//#include "NetworkManager.h"
 #include <Windows.h>
 #include <d3d9.h>
 #include <d3dx9.h>
 #include "Singleton.h"
-#include "Scene_Test.h"
 #include "head.h"
+#include "Scene.h"
 
 class GameManager : public Singleton <GameManager>
 {

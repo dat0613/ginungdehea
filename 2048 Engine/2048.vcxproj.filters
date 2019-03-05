@@ -43,23 +43,8 @@
     <Filter Include="헤더 파일\Event">
       <UniqueIdentifier>{6ff96da1-28c0-4594-9cd6-26f7b31d8375}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\GameObject\Gun">
-      <UniqueIdentifier>{91e164fc-9834-46a2-84cf-04dc81b41545}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\GameObject\Gun">
-      <UniqueIdentifier>{fa71d864-9256-4d64-9dd3-e19ba0b95666}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\GameObject\Player">
-      <UniqueIdentifier>{b3b4a7a3-fab9-4a84-9df8-3911fc456f7d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\GameObject\Player">
-      <UniqueIdentifier>{1e78a014-fb6e-4bd9-a415-afa66fc86f4a}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BackGround.cpp">
-      <Filter>소스 파일\GameObject</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>소스 파일\GameObject</Filter>
     </ClCompile>
@@ -78,90 +63,21 @@
     <ClCompile Include="GraphicManager.cpp">
       <Filter>소스 파일\Manager</Filter>
     </ClCompile>
-    <ClCompile Include="SoundManager.cpp">
-      <Filter>소스 파일\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene_Test.cpp">
-      <Filter>소스 파일\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="InputManager.cpp">
-      <Filter>소스 파일\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="SoundEvent.cpp">
-      <Filter>소스 파일\Event</Filter>
-    </ClCompile>
-    <ClCompile Include="FontEvent.cpp">
-      <Filter>소스 파일\Event</Filter>
-    </ClCompile>
-    <ClCompile Include="KeyboardEvent.cpp">
-      <Filter>소스 파일\Event</Filter>
-    </ClCompile>
-    <ClCompile Include="NetworkManager.cpp">
       <Filter>소스 파일\Manager</Filter>
     </ClCompile>
     <ClCompile Include="Animation.cpp">
       <Filter>소스 파일\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="Wall.cpp">
-      <Filter>소스 파일\GameObject</Filter>
+    <ClCompile Include="KeyboardEvent.cpp">
+      <Filter>소스 파일\Event</Filter>
     </ClCompile>
-    <ClCompile Include="Hole.cpp">
-      <Filter>소스 파일\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="KillLog.cpp">
-      <Filter>소스 파일\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="UIManager.cpp">
-      <Filter>소스 파일\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="Emote.cpp">
-      <Filter>소스 파일\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="Gun.cpp">
-      <Filter>소스 파일\GameObject\Gun</Filter>
-    </ClCompile>
-    <ClCompile Include="GunBox.cpp">
-      <Filter>소스 파일\GameObject\Gun</Filter>
-    </ClCompile>
-    <ClCompile Include="Pistol.cpp">
-      <Filter>소스 파일\GameObject\Gun</Filter>
-    </ClCompile>
-    <ClCompile Include="SniperRifle.cpp">
-      <Filter>소스 파일\GameObject\Gun</Filter>
-    </ClCompile>
-    <ClCompile Include="AssaultRifle.cpp">
-      <Filter>소스 파일\GameObject\Gun</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>소스 파일\GameObject\Gun</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerNetwork.cpp">
-      <Filter>소스 파일\GameObject\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>소스 파일\GameObject\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="DieEffect.cpp">
-      <Filter>소스 파일\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene_Video.cpp">
-      <Filter>소스 파일\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene_Reflection.cpp">
-      <Filter>소스 파일\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>소스 파일\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="Controller.cpp">
-      <Filter>소스 파일\GameObject</Filter>
+    <ClCompile Include="FontEvent.cpp">
+      <Filter>소스 파일\Event</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
-      <Filter>헤더 파일\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="BackGround.h">
       <Filter>헤더 파일\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="GameManager.h">
@@ -176,86 +92,20 @@
     <ClInclude Include="GraphicManager.h">
       <Filter>헤더 파일\Manager</Filter>
     </ClInclude>
-    <ClInclude Include="SoundManager.h">
-      <Filter>헤더 파일\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene_Test.h">
-      <Filter>헤더 파일\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="InputManager.h">
       <Filter>헤더 파일\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="SoundEvent.h">
-      <Filter>헤더 파일\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="FontEvent.h">
-      <Filter>헤더 파일\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="KeyboardEvent.h">
-      <Filter>헤더 파일\Event</Filter>
     </ClInclude>
     <ClInclude Include="head.h">
       <Filter>헤더 파일\header</Filter>
     </ClInclude>
-    <ClInclude Include="NetworkManager.h">
-      <Filter>헤더 파일\Manager</Filter>
-    </ClInclude>
     <ClInclude Include="Animation.h">
       <Filter>헤더 파일\header</Filter>
     </ClInclude>
-    <ClInclude Include="Wall.h">
-      <Filter>헤더 파일\GameObject</Filter>
+    <ClInclude Include="KeyboardEvent.h">
+      <Filter>헤더 파일\Event</Filter>
     </ClInclude>
-    <ClInclude Include="Hole.h">
-      <Filter>헤더 파일\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="KillLog.h">
-      <Filter>헤더 파일\header</Filter>
-    </ClInclude>
-    <ClInclude Include="UIManager.h">
-      <Filter>헤더 파일\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Emote.h">
-      <Filter>헤더 파일\header</Filter>
-    </ClInclude>
-    <ClInclude Include="Gun.h">
-      <Filter>헤더 파일\GameObject\Gun</Filter>
-    </ClInclude>
-    <ClInclude Include="GunBox.h">
-      <Filter>헤더 파일\GameObject\Gun</Filter>
-    </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>헤더 파일\GameObject\Gun</Filter>
-    </ClInclude>
-    <ClInclude Include="Pistol.h">
-      <Filter>헤더 파일\GameObject\Gun</Filter>
-    </ClInclude>
-    <ClInclude Include="SniperRifle.h">
-      <Filter>헤더 파일\GameObject\Gun</Filter>
-    </ClInclude>
-    <ClInclude Include="AssaultRifle.h">
-      <Filter>헤더 파일\GameObject\Gun</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>헤더 파일\GameObject\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerNetwork.h">
-      <Filter>헤더 파일\GameObject\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="DieEffect.h">
-      <Filter>헤더 파일\header</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene_video.h">
-      <Filter>헤더 파일\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene_Reflection.h">
-      <Filter>헤더 파일\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>헤더 파일\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="Controller.h">
-      <Filter>헤더 파일\GameObject</Filter>
+    <ClInclude Include="FontEvent.h">
+      <Filter>헤더 파일\Event</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

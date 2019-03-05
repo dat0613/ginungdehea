@@ -1,10 +1,5 @@
-#include "NetworkManager.h"
 #include "GameManager.h"
-#include "SoundManager.h"
 #include "GraphicManager.h"
-#include "UIManager.h"
-#include "Scene_video.h"
-#include "Scene_Reflection.h"
 
 GameManager::~GameManager()
 {
@@ -45,12 +40,9 @@ HRESULT GameManager::Init(HWND hwnd)
 
 void GameManager::Update()
 {
-	NetworkManager::GetInstance()->Update();
 	InputManager::GetInstance()->Update(hwnd);
 	nowScene->Update();
 	GraphicManager::GetInstance()->CameraUpdate();
-	SoundManager::GetInstance()->Update();
-	UIManager::GetInstance()->Update();
 	nowScene->Collision();
 
 	if (InputManager::GetInstance()->OneClickKey(ESC))
@@ -72,8 +64,6 @@ void GameManager::Render()
 		Device->EndScene();
 	}
 
-	//Device->GetBackBuffer()
-
 	Device->Present(NULL, NULL, NULL, NULL);
 }
 
@@ -94,6 +84,6 @@ LPDIRECT3DDEVICE9 GameManager::getDevice()
 
 void GameManager::GameStart()
 {
-	nowScene = new Scene_Reflection();
+	nowScene = new Scene();	// 추상 클래스임. 나중에 Scene을 상속받는 클래스를 만들어야 함.
 	nowScene->Init();
 }

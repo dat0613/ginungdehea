@@ -4,8 +4,8 @@
 #include <d3d9.h>
 #include <d3dx9.h> 
 #include "Singleton.h"
-#include "KeyboardEvent.h"
 #include "GraphicManager.h"
+#include "KeyboardEvent.h"
 
 #define LEFTMOUSE 0				//마우스 좌클릭
 #define RIGHTMOUSE 1			//마우스 우클릭
