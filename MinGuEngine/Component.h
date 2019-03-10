@@ -13,7 +13,7 @@ public:
 
 	Component();
 	virtual void Update() = 0;
-	virtual void LateUpdate() = 0;
+	virtual void LateUpdate();
 	virtual ~Component();
 
 	void SetGameObject(GameObject * gameObject);

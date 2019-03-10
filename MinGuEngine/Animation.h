@@ -5,8 +5,7 @@
 class Animation : public Component
 {
 public:
-	enum TYPE {Cube, MAXANIMATION, NONE };
-
+	enum TYPE { Cube, Negev, MAXANIMATION, NONE };
 
 private:
 

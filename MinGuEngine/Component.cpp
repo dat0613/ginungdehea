@@ -5,8 +5,14 @@ Component::Component()
 	this->gameObject = nullptr;
 }
 
+void Component::LateUpdate()
+{
+
+}
+
 Component::~Component()
 {
+
 }
 
 void Component::SetGameObject(GameObject * gameObject)

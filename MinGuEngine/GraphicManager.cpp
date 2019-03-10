@@ -1,5 +1,6 @@
 #include "GraphicManager.h"
 #include "Camera.h"
+#include "Info.h"
 
 LPDIRECT3DTEXTURE9 GraphicManager::CreateTexture(LPCWSTR file)
 {
@@ -25,19 +26,28 @@ LPDIRECT3DTEXTURE9 GraphicManager::CreateTexture(LPCWSTR file)
 
 void GraphicManager::RenderGameObject(GameObject * gameObject)
 {
-	D3DXMATRIX matrix, rotation, position, scale, Pcenter, Ncenter;
-	auto transform = gameObject->transform;
+	D3DXMATRIX matrix, CamMatrix, rotationM, positionM, scaleM, center, CamRotation, NCamCenter, PCamCenter;
+	auto position = gameObject->transform->position;
+	auto scale = gameObject->transform->scale;
 	auto animation = gameObject->animation;
-	D3DXMatrixTranslation(&position, transform->position.x, transform->position.y, 0.0f);
-	D3DXMatrixTranslation(&Ncenter, -animation->frameSize.x * 0.5f, -animation->frameSize.y * 0.5f, 0.0f);
-	D3DXMatrixTranslation(&Pcenter, animation->frameSize.x * 0.5f, animation->frameSize.y * 0.5f, 0.0f);
-	D3DXMatrixRotationZ(&rotation, transform->rotation);
-	D3DXMatrixScaling(&scale, transform->scale, transform->scale, 0.0f);
-	
-	auto texture = textureVector[animation->type];
-	auto center = animation->frameSize * 0.5f;
+	auto frameSize = animation->frameSize;
+	auto rotation = gameObject->transform->rotation;
 
-	matrix = scale * Ncenter *rotation * position;
+	D3DXMatrixTranslation(&positionM, position.x * Camera::scope - Camera::position.x * Camera::scope + SCREENWIDTH * 0.5f, position.y * Camera::scope - Camera::position.y * Camera::scope + SCREENHEIGHT * 0.5f, 0.0f);
+	D3DXMatrixTranslation(&center, -frameSize.x * Camera::scope * 0.5f, -frameSize.y * Camera::scope * 0.5f, 0.0f);
+	D3DXMatrixScaling(&scaleM, scale * Camera::scope, scale * Camera::scope, 0.0f);
+	D3DXMatrixRotationZ(&rotationM, D3DXToRadian(rotation));
+
+	//D3DXMatrixTranslation(&NCamCenter, Camera::scope * (position.x - frameSize.x * 0.5f + Camera::position.x) + SCREENWIDTH * 0.5f, Camera::scope * (position.y - frameSize.y * 0.5f + Camera::position.y) + SCREENHEIGHT * 0.5f, 0.0f);
+
+	D3DXMatrixRotationZ(&CamRotation, D3DXToRadian(Camera::degree));
+
+	auto texture = textureVector[animation->type];
+
+	CamMatrix = NCamCenter * CamRotation;
+	matrix = scaleM * center * rotationM * positionM;
+
+	matrix *= CamMatrix;
 
 	sprite->SetTransform(&matrix);
 
@@ -66,6 +76,7 @@ void GraphicManager::Init(LPDIRECT3DDEVICE9 device)
 
 	textureVector.resize(Animation::TYPE::MAXANIMATION);
 	textureVector[Animation::TYPE::Cube] = CreateTexture(L"./Resource/Image/Cube.png");
+	textureVector[Animation::TYPE::Negev] = CreateTexture(L"./Resource/Image/Negev.png");
 }
 
 void GraphicManager::Render(list<GameObject*>& gameObjectList)
@@ -90,7 +101,7 @@ LPDIRECT3DTEXTURE9 GraphicManager::GetTexture(Animation::TYPE type)
 D3DXVECTOR2 GraphicManager::GetTextureSize(Animation::TYPE type)
 {
 	auto texture = GetTexture(type);
-	
+
 	D3DSURFACE_DESC desc;
 	texture->GetLevelDesc(0, &desc);
 

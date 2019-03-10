@@ -55,6 +55,11 @@ void Animation::SetType(TYPE type)
 		timePerFrame = -1;
 		frameSize = imageSize;
 		break;
+
+	case Negev:
+		timePerFrame = -1;
+		frameSize = imageSize;
+		break;
 	}
 }
 

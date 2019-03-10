@@ -1,7 +1,9 @@
 #include "GameManager.h"
 #include "GraphicManager.h"
+#include "InputManager.h"
 #include "Info.h"
 #include <ctime>
+#include "Camera.h"
 
 
 GameManager::GameManager()
@@ -37,6 +39,7 @@ void GameManager::Init(HWND hwnd)
 	srand((unsigned)int(time(NULL)));
 
 	GraphicManager::get()->Init(device);
+	InputManager::get()->Init(hwnd);
 
 	nowScene = new Scene();
 	nowScene->Init();
@@ -44,8 +47,10 @@ void GameManager::Init(HWND hwnd)
 
 void GameManager::Update()
 {
+	InputManager::get()->Update();
 	nowScene->AutoUpdate();
 	nowScene->AutoLateUpdate();
+	Camera::Update();
 }
 
 void GameManager::Render()
