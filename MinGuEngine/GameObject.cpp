@@ -4,6 +4,7 @@ GameObject::GameObject()
 {
 	animation = AddComponent<Animation>();
 	transform = AddComponent<Transform>();
+	boxcollider2d = AddComponent<BoxCollider2D>();
 	destroy = false;
 }
 

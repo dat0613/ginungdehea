@@ -4,6 +4,7 @@
 #include "Info.h"
 #include <ctime>
 #include "Camera.h"
+#include "Scene_Test.h"
 
 
 GameManager::GameManager()
@@ -41,7 +42,7 @@ void GameManager::Init(HWND hwnd)
 	GraphicManager::get()->Init(device);
 	InputManager::get()->Init(hwnd);
 
-	nowScene = new Scene();
+	nowScene = new Scene_Test();
 	nowScene->Init();
 }
 

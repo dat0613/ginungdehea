@@ -12,7 +12,7 @@ class InputManager : public Singleton<InputManager>
 {
 public:
 
-	enum KEY { MOUSE0,  MOUSE1, W, A, S, D, SPACE ,MAXKEY };
+	enum KEY { MOUSE0,  MOUSE1, W, A, S, D,LEFT ,RIGHT,  SPACE ,MAXKEY };
 
 private:
 

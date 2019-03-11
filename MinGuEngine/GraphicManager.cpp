@@ -35,19 +35,20 @@ void GraphicManager::RenderGameObject(GameObject * gameObject)
 
 	D3DXMatrixTranslation(&positionM, position.x * Camera::scope - Camera::position.x * Camera::scope + SCREENWIDTH * 0.5f, position.y * Camera::scope - Camera::position.y * Camera::scope + SCREENHEIGHT * 0.5f, 0.0f);
 	D3DXMatrixTranslation(&center, -frameSize.x * Camera::scope * 0.5f, -frameSize.y * Camera::scope * 0.5f, 0.0f);
+
+	D3DXMatrixTranslation(&NCamCenter, ( -frameSize.x * 0.5f + position.x - Camera::position.x), (-frameSize.y *  0.5f + position.y - Camera::position.y), 0.0f);
+	D3DXMatrixTranslation(&PCamCenter, -( -frameSize.x * 0.5f + position.x - Camera::position.x), -(-frameSize.y *  0.5f + position.y - Camera::position.y), 0.0f);
 	D3DXMatrixScaling(&scaleM, scale * Camera::scope, scale * Camera::scope, 0.0f);
 	D3DXMatrixRotationZ(&rotationM, D3DXToRadian(rotation));
-
-	//D3DXMatrixTranslation(&NCamCenter, Camera::scope * (position.x - frameSize.x * 0.5f + Camera::position.x) + SCREENWIDTH * 0.5f, Camera::scope * (position.y - frameSize.y * 0.5f + Camera::position.y) + SCREENHEIGHT * 0.5f, 0.0f);
 
 	D3DXMatrixRotationZ(&CamRotation, D3DXToRadian(Camera::degree));
 
 	auto texture = textureVector[animation->type];
 
-	CamMatrix = NCamCenter * CamRotation;
+	CamMatrix = NCamCenter * CamRotation * PCamCenter;
 	matrix = scaleM * center * rotationM * positionM;
 
-	matrix *= CamMatrix;
+	matrix = CamMatrix * matrix;
 
 	sprite->SetTransform(&matrix);
 

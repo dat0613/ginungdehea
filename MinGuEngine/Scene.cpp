@@ -2,15 +2,10 @@
 
 #include "GameObject.h"
 #include "GraphicManager.h"
-#include "Cube.h"
-#include "Negev.h"
 
 void Scene::Init()
 {
-	auto obj = Instantiate<Cube>();
-	obj->transform->position = obj->transform->position;
-	Instantiate<Negev>();
-	//Instantiate<Cube>()->animation->color = D3DCOLOR_ARGB(20, 255, 0, 255);
+
 }
 
 void Scene::AutoUpdate()

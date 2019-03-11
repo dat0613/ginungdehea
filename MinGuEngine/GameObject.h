@@ -8,6 +8,7 @@
 #include "Animation.h"
 #include "Transform.h"
 #include "GameManager.h"
+#include "BoxCollider2D.h"
 
 
 using namespace std;
@@ -53,6 +54,7 @@ public:
 
 	Transform * transform;
 	Animation * animation;
+	BoxCollider2D * boxcollider2d;
 
 	bool destroy;
 };

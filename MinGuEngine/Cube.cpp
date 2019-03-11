@@ -24,6 +24,14 @@ void Cube::Update()
 	{
 		Camera::degree += 0.01f*100;
 	}
+	if (InputManager::get()->GetKey(InputManager::KEY::LEFT))
+	{
+		Camera::scope -= 0.01f;
+	}
+	if (InputManager::get()->GetKey(InputManager::KEY::RIGHT))
+	{
+		Camera::scope += 0.01f;
+	}
 }
 
 Cube::~Cube()
