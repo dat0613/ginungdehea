@@ -71,8 +71,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\ASUS\Documents\GitHub\ginungdehea\MinGuEngine\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\ASUS\Documents\GitHub\ginungdehea\MinGuEngine\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\ASUS\Documents\GitHub\ginungdehea\MinGuEngine\inc;C:\Users\USER\Documents\GitHub\ginungdehea\MinGuEngine\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\ASUS\Documents\GitHub\ginungdehea\MinGuEngine\lib;C:\Users\USER\Documents\GitHub\ginungdehea\MinGuEngine\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
