@@ -20,6 +20,8 @@ void InputManager::Init(HWND hwnd)
 	keyVector[KEY::D]->keyCode = 'D';
 	keyVector[KEY::LEFT]->keyCode = VK_LEFT;
 	keyVector[KEY::RIGHT]->keyCode = VK_RIGHT;
+	keyVector[KEY::UP]->keyCode = VK_UP;
+	keyVector[KEY::DOWN]->keyCode = VK_DOWN;
 	keyVector[KEY::SPACE]->keyCode = VK_SPACE;
 
 }

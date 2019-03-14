@@ -30,3 +30,18 @@ GameObject::~GameObject()
 
 	ComponentMap.clear();
 }
+
+void GameObject::OnCollisionEnter2D()
+{
+
+}
+
+void GameObject::OnCollisionStay2D()
+{
+
+}
+
+void GameObject::OnCollisionExit2D()
+{
+
+}

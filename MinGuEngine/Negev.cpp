@@ -5,6 +5,7 @@ Negev::Negev()
 {
 	//AddComponent<Controller>();
 	animation->SetType(Animation::Negev);
+	boxcollider2d->SetColliderSize(252, 352);
 }
 
 Negev::~Negev()

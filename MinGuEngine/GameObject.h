@@ -52,6 +52,10 @@ public:
 	virtual void LateUpdate();
 	virtual ~GameObject();
 
+	virtual void OnCollisionEnter2D();
+	virtual void OnCollisionStay2D();
+	virtual void OnCollisionExit2D();
+
 	Transform * transform;
 	Animation * animation;
 	BoxCollider2D * boxcollider2d;

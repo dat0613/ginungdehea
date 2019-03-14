@@ -49,6 +49,7 @@ void GameManager::Init(HWND hwnd)
 void GameManager::Update()
 {
 	InputManager::get()->Update();
+	nowScene->AutoCollision();
 	nowScene->AutoUpdate();
 	nowScene->AutoLateUpdate();
 	Camera::Update();

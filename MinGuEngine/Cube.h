@@ -11,5 +11,5 @@ public:
 	Cube();
 	void Update();
 	~Cube();
-
+	void OnCollisionStay2D();
 };
