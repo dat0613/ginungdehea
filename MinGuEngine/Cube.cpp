@@ -3,10 +3,12 @@
 #include "Info.h"
 #include "Controller.h"
 #include "Camera.h"
+#include "RigidBody2D.h"
 
 Cube::Cube()
 {
 	AddComponent<Controller>();
+	AddComponent<RigidBody2D>();
 	animation->SetType(Animation::TYPE::Cube);
 	Camera::target = this;
 	boxcollider2d->SetColliderSize(500, 500);
@@ -33,6 +35,8 @@ void Cube::Update()
 	{
 		Camera::scope += 0.01f;
 	}
+
+
 }
 
 Cube::~Cube()
@@ -42,5 +46,5 @@ Cube::~Cube()
 
 void Cube::OnCollisionStay2D()
 {
-	printf("Ãæµ¹");
+
 }

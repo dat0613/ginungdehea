@@ -2,15 +2,13 @@
 
 #include "GameObject.h"
 #include "GraphicManager.h"
+#include "RigidBody2D.h"
 
 bool Scene::CollisionCheckCircle(GameObject * a, GameObject * b)
 {
 	float asdf = D3DXVec2Length(&(a->transform->position - b->transform->position));
 	if (a->boxcollider2d->radius + b->boxcollider2d->radius > asdf)
-	{ 
-	printf("%f, %f, %f\n", a->boxcollider2d->radius, b->boxcollider2d->radius, asdf);
 		return true;
-	}
 
 	return false;
 }
@@ -33,6 +31,37 @@ bool Scene::CollisionCheckAABB(GameObject * a, GameObject * b)
 	}
 
 	return false;
+}
+
+void Scene::CollisionUpdate(GameObject * a, GameObject * b)
+{
+	auto Arigidbody2d = a->GetComponent<RigidBody2D>();
+	auto Brigidbody2d = b->GetComponent<RigidBody2D>();
+
+	if(Arigidbody2d == nullptr || Brigidbody2d == nullptr)
+
+
+	if (Arigidbody2d != nullptr)
+	{
+		if (Arigidbody2d->bodyType != RigidBody2D::BodyType::Static)
+		{
+
+		}
+	}
+	
+
+	if (Brigidbody2d != nullptr)
+	{
+		if (Brigidbody2d->bodyType != RigidBody2D::BodyType::Static)
+		{
+
+		}
+	}
+}
+
+void Scene::CollisionInterpolation(GameObject * a, GameObject * b)
+{
+
 }
 
 void Scene::Init()
@@ -105,6 +134,7 @@ void Scene::AutoCollision()
 			{
 				gameObjectVector[i]->OnCollisionStay2D();
 				gameObjectVector[j]->OnCollisionStay2D();
+
 			}
 		}
 	}

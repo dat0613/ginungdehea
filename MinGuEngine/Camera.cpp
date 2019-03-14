@@ -1,7 +1,7 @@
 #include "Camera.h"
 
 GameObject* Camera::target = nullptr;
-float Camera::scope = 1.0f;
+float Camera::scope = 0.1f;
 float Camera::degree = 0.0f;
 D3DXVECTOR2 Camera::position = D3DXVECTOR2(0.0f, 0.0f);
 

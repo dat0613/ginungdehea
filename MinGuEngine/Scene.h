@@ -19,6 +19,8 @@ private:
 	list<GameObject *> gameObjectList;
 	bool CollisionCheckCircle(GameObject * a, GameObject * b);
 	bool CollisionCheckAABB(GameObject * a, GameObject * b);
+	void CollisionUpdate(GameObject * a, GameObject * b);
+	void CollisionInterpolation(GameObject * a, GameObject * b);
 
 public:
 	
@@ -30,5 +32,4 @@ public:
 	void AddGameObject(GameObject * object);
 	void AutoRender();
 	void AutoCollision();
-
 };

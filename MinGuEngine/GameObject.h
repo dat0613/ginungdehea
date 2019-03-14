@@ -42,7 +42,11 @@ public:
 
 	T * GetComponent()
 	{
-		return ((T *)ComponentMap.find(typeid(T).hash_code)->second);
+		auto obj = ComponentMap.find(typeid(T).hash_code());
+		if (obj == ComponentMap.end())
+			return nullptr;
+		else
+			return ((T *)(obj->second));
 	}
 
 
