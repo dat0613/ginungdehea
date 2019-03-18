@@ -5,9 +5,10 @@ RigidBody2D::RigidBody2D()
 {
 	this->bodyType = BodyType::Dynamic;
 	velocity = D3DXVECTOR2(0.0f, 0.0f);
-	gravity = 0.0f;
-	gravityAccel = 1.1f;
-	gravityScale = 0.1f;
+	lastGravity = gravity = 0.0f;
+	gravityAccel = 0.5f;
+	gravityScale = 0.5f;
+	isAir = true;
 }
 
 RigidBody2D::~RigidBody2D()
@@ -17,6 +18,7 @@ RigidBody2D::~RigidBody2D()
 
 void RigidBody2D::Update()
 {
+	lastGravity = gravity;
 	// Static 은 움직이지 않음
 	if (bodyType == BodyType::Static)
 		return;
@@ -25,10 +27,47 @@ void RigidBody2D::Update()
 	// Dynamic 은 중력의 영향을 받음
 	if (bodyType == BodyType::Dynamic)
 	{
-		velocity.y += gravity;
-		gravity += gravityScale;
-		gravityScale *= gravityAccel;
-		printf("%f\n", gravity);
+		if (isAir)
+		{
+			velocity.y += gravity;
+			gravity += gravityScale;
+			//gravityScale += gravityAccel;
+			//printf("%f\n", gravity);
+		}
 	}
-	GetGameObject()->transform->position += velocity;
+
+	isAir = true;
+	lastMovex = lastMovey = false;
+}
+
+void RigidBody2D::Collision()
+{
+	//velocity = D3DXVECTOR2(0.0f, 0.0f);
+
+	velocity.y = 0.0f;
+	gravity = 0.0f;
+	gravityAccel = 0.5f;
+	gravityScale = 0.5f;
+
+	isAir = false;
+}
+
+void RigidBody2D::xMove()
+{
+	if (!lastMovex)
+	{
+		GetGameObject()->transform->position.x += velocity.x;
+		lastMovex = true;
+		//printf("%f, %f\n", GetGameObject()->transform->position.x, GetGameObject()->transform->position.y);
+	}
+}
+
+void RigidBody2D::yMove()
+{
+	if (!lastMovey)
+	{
+		GetGameObject()->transform->position.y += velocity.y;
+		lastMovey = true;
+		//printf("%f, %f\n", GetGameObject()->transform->position.x, GetGameObject()->transform->position.y);
+	}
 }

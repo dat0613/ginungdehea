@@ -13,5 +13,5 @@ public:
 	~Negev();
 
 	void Update();
-
+	void Awake();
 };

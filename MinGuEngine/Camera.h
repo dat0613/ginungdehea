@@ -17,4 +17,7 @@ public:
 	static float degree;
 	static void Init();
 	static void Update();
+	static void Shake(int power);
+	static int radius;
+	static int shake;
 };

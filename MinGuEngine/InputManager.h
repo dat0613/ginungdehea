@@ -3,6 +3,7 @@
 #include "Singleton.h"
 #include <vector>
 #include <Windows.h>
+#include <d3dx9.h>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ class InputManager : public Singleton<InputManager>
 {
 public:
 
-	enum KEY { MOUSE0,  MOUSE1, W, A, S, D,LEFT ,RIGHT, UP, DOWN,  SPACE ,MAXKEY };
+	enum KEY { MOUSE0,  MOUSE1, W, A, S, D,LEFT ,RIGHT, UP, DOWN,  SPACE,ESC ,MAXKEY };
 
 private:
 
@@ -27,6 +28,8 @@ public:
 	bool GetKey(KEY key);
 	bool GetKeyDown(KEY key);
 	bool GetKeyUp(KEY key);
+	D3DXVECTOR2 mousePositionScreen;
+	D3DXVECTOR2 mousePositionWorld;
 
 };
 

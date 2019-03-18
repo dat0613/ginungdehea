@@ -1,4 +1,6 @@
 #include "InputManager.h"
+#include "Camera.h"
+#include "Info.h"
 
 void InputManager::Init(HWND hwnd)
 {
@@ -23,6 +25,7 @@ void InputManager::Init(HWND hwnd)
 	keyVector[KEY::UP]->keyCode = VK_UP;
 	keyVector[KEY::DOWN]->keyCode = VK_DOWN;
 	keyVector[KEY::SPACE]->keyCode = VK_SPACE;
+	keyVector[KEY::ESC]->keyCode = VK_ESCAPE;
 
 }
 
@@ -46,6 +49,14 @@ void InputManager::Update()
 			key->lastDown = false;
 		}
 	}
+	
+	POINT mouse;
+	GetCursorPos(&mouse);
+	ScreenToClient(hwnd, &mouse);
+	mousePositionScreen = { (float)mouse.x, (float)mouse.y };
+	mousePositionWorld = (mousePositionScreen + Camera::position) * Camera::scope;
+	mousePositionWorld.x -= SCREENWIDTH * 0.5f;
+	mousePositionWorld.y -= SCREENHEIGHT * 0.5f;
 }
 
 bool InputManager::GetKey(KEY key)

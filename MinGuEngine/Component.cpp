@@ -5,6 +5,11 @@ Component::Component()
 	this->gameObject = nullptr;
 }
 
+void Component::Awake()
+{
+
+}
+
 void Component::LateUpdate()
 {
 

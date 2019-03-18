@@ -20,8 +20,6 @@ public:
 	Scene * nowScene;
 private:
 
-
-	
 	LPDIRECT3D9 d3d;
 	LPDIRECT3DDEVICE9 device;
 	HWND hwnd;

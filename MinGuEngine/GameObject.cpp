@@ -6,6 +6,12 @@ GameObject::GameObject()
 	transform = AddComponent<Transform>();
 	boxcollider2d = AddComponent<BoxCollider2D>();
 	destroy = false;
+	isUI = false;
+}
+
+void GameObject::Awake()
+{
+
 }
 
 void GameObject::ComponentUpdate()

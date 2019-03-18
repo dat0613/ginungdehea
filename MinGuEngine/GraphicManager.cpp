@@ -33,22 +33,36 @@ void GraphicManager::RenderGameObject(GameObject * gameObject)
 	auto frameSize = animation->frameSize;
 	auto rotation = gameObject->transform->rotation;
 
-	D3DXMatrixTranslation(&positionM, position.x * Camera::scope - Camera::position.x * Camera::scope + SCREENWIDTH * 0.5f, position.y * Camera::scope - Camera::position.y * Camera::scope + SCREENHEIGHT * 0.5f, 0.0f);
-	D3DXMatrixTranslation(&center, -frameSize.x * Camera::scope * 0.5f, -frameSize.y * Camera::scope * 0.5f, 0.0f);
-
-	D3DXMatrixTranslation(&NCamCenter, ( -frameSize.x * 0.5f + position.x - Camera::position.x), (-frameSize.y *  0.5f + position.y - Camera::position.y), 0.0f);
-	D3DXMatrixTranslation(&PCamCenter, -( -frameSize.x * 0.5f + position.x - Camera::position.x), -(-frameSize.y *  0.5f + position.y - Camera::position.y), 0.0f);
-	D3DXMatrixScaling(&scaleM, scale * Camera::scope, scale * Camera::scope, 0.0f);
-	D3DXMatrixRotationZ(&rotationM, D3DXToRadian(rotation));
-
-	D3DXMatrixRotationZ(&CamRotation, D3DXToRadian(Camera::degree));
-
 	auto texture = textureVector[animation->type];
 
-	CamMatrix = NCamCenter * CamRotation * PCamCenter;
-	matrix = scaleM * center * rotationM * positionM;
+	if (!gameObject->isUI)
+	{
 
-	matrix = CamMatrix * matrix;
+		D3DXMatrixTranslation(&positionM, position.x * Camera::scope - Camera::position.x * Camera::scope + SCREENWIDTH * 0.5f, position.y * Camera::scope - Camera::position.y * Camera::scope + SCREENHEIGHT * 0.5f, 0.0f);
+		D3DXMatrixTranslation(&center, -frameSize.x * Camera::scope * 0.5f, -frameSize.y * Camera::scope * 0.5f, 0.0f);
+
+		D3DXMatrixTranslation(&NCamCenter, (-frameSize.x * 0.5f + position.x - Camera::position.x), (-frameSize.y *  0.5f + position.y - Camera::position.y), 0.0f);
+		D3DXMatrixTranslation(&PCamCenter, -(-frameSize.x * 0.5f + position.x - Camera::position.x), -(-frameSize.y *  0.5f + position.y - Camera::position.y), 0.0f);
+		D3DXMatrixScaling(&scaleM, scale * Camera::scope, scale * Camera::scope, 0.0f);
+		D3DXMatrixRotationZ(&rotationM, D3DXToRadian(rotation));
+
+		D3DXMatrixRotationZ(&CamRotation, D3DXToRadian(Camera::degree));
+
+
+		CamMatrix = NCamCenter * CamRotation * PCamCenter;
+		matrix = scaleM * center * rotationM * positionM;
+
+		matrix = CamMatrix * matrix;
+
+	}
+	else
+	{
+		D3DXMatrixTranslation(&positionM, position.x, position.y, 0.0f);
+		D3DXMatrixTranslation(&center, -frameSize.x * 0.5f, -frameSize.y * 0.5f, 0.0f);
+		D3DXMatrixScaling(&scaleM, scale, scale, 0.0f);
+
+		matrix = scaleM * center * positionM;
+	}
 
 	sprite->SetTransform(&matrix);
 
@@ -78,6 +92,7 @@ void GraphicManager::Init(LPDIRECT3DDEVICE9 device)
 	textureVector.resize(Animation::TYPE::MAXANIMATION);
 	textureVector[Animation::TYPE::Cube] = CreateTexture(L"./Resource/Image/Cube.png");
 	textureVector[Animation::TYPE::Negev] = CreateTexture(L"./Resource/Image/Negev.png");
+	textureVector[Animation::TYPE::UITest] = CreateTexture(L"./Resource/Image/UI.png");
 }
 
 void GraphicManager::Render(list<GameObject*>& gameObjectList)

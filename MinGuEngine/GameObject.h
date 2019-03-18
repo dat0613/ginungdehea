@@ -34,6 +34,7 @@ public:
 		Component * comp = new T();
 		comp->SetGameObject(this);
 		ComponentMap.insert(make_pair(typeid(T).hash_code(), comp));
+		comp->Awake();
 		return (T *)comp;
 	}
 
@@ -51,6 +52,7 @@ public:
 
 
 	GameObject();
+	virtual void Awake();
 	virtual void Update() = 0;
 	void ComponentUpdate();
 	virtual void LateUpdate();
@@ -65,6 +67,7 @@ public:
 	BoxCollider2D * boxcollider2d;
 
 	bool destroy;
+	bool isUI;
 };
 
 template <class T>
@@ -72,5 +75,6 @@ static T * Instantiate()
 {
 	GameObject * object = new T();
 	GameManager::get()->nowScene->AddGameObject(object);
+	object->Awake();
 	return (T *)object;
 }

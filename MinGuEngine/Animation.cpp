@@ -52,14 +52,12 @@ void Animation::SetType(TYPE type)
 	switch (type)
 	{
 	case Cube:
+	case Negev:
+	case UITest:
 		timePerFrame = -1;
 		frameSize = imageSize;
 		break;
 
-	case Negev:
-		timePerFrame = -1;
-		frameSize = imageSize;
-		break;
 	}
 }
 

@@ -12,6 +12,8 @@ private:
 public:
 
 	Component();
+
+	virtual void Awake();
 	virtual void Update() = 0;
 	virtual void LateUpdate();
 	virtual ~Component();

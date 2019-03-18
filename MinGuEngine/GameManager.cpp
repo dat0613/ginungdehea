@@ -53,13 +53,17 @@ void GameManager::Update()
 	nowScene->AutoUpdate();
 	nowScene->AutoLateUpdate();
 	Camera::Update();
+
+	if (InputManager::get()->GetKeyDown(InputManager::KEY::ESC))
+		exit(1);
 }
+
 
 void GameManager::Render()
 {
 	if (device == NULL)
 		return;
-	device->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 255, 255), 1.0F, 0);
+	device->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 255, 255), 1.0f, 0);
 
 	if (SUCCEEDED(device->BeginScene()))
 	{
