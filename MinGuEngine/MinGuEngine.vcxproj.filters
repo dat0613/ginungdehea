@@ -49,6 +49,12 @@
     <Filter Include="헤더 파일\Scene">
       <UniqueIdentifier>{bcc0904c-0e87-4ab5-97bb-047ab7797174}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Particle">
+      <UniqueIdentifier>{d4314401-0ad7-4abc-94fa-68980c6c3274}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Particle">
+      <UniqueIdentifier>{6b5326bd-d8d2-47a8-a8fc-2190df3bd241}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -99,9 +105,6 @@
     <ClInclude Include="Cube.h">
       <Filter>헤더 파일\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="InputManager.h">
-      <Filter>헤더 파일\Singleton</Filter>
-    </ClInclude>
     <ClInclude Include="Controller.h">
       <Filter>헤더 파일\Component</Filter>
     </ClInclude>
@@ -122,6 +125,21 @@
     </ClInclude>
     <ClInclude Include="UITest.h">
       <Filter>헤더 파일\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>헤더 파일\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h">
+      <Filter>헤더 파일\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>헤더 파일\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>헤더 파일\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Explosion.h">
+      <Filter>헤더 파일\Particle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -158,9 +176,6 @@
     <ClCompile Include="Cube.cpp">
       <Filter>소스 파일\GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="InputManager.cpp">
-      <Filter>소스 파일\Singleton</Filter>
-    </ClCompile>
     <ClCompile Include="Controller.cpp">
       <Filter>소스 파일\Component</Filter>
     </ClCompile>
@@ -181,6 +196,21 @@
     </ClCompile>
     <ClCompile Include="UITest.cpp">
       <Filter>소스 파일\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>소스 파일\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>소스 파일\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>소스 파일\Singleton</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>소스 파일\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Explosion.cpp">
+      <Filter>소스 파일\Particle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

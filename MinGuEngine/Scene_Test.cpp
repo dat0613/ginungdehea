@@ -2,19 +2,21 @@
 #include "Cube.h"
 #include "Negev.h"
 #include "UITest.h"
+#include "BackGround.h"
+#include "Ground.h"
 
 void Scene_Test::Init()
 {
 	Instantiate<Cube>()->transform->position.y = -1000;
-	Instantiate<Negev>()->transform->position.y = 1000;
-	Instantiate<Negev>()->transform->position.x = 500;
-	Instantiate<Negev>()->transform->position.y = -500;
+	Instantiate<BackGround>();
 	for (int i = 0; i < 10; i++)
 	{
-		Instantiate<Negev>()->transform->position.x = -i * 252;
+		auto obj = Instantiate<Ground>();
+		obj->transform->position.x = i * 860;
 	}
 
 	Instantiate<UITest>();
+	Instantiate<BackGround>();
 
 	//Instantiate<Cube>()->animation->color = D3DCOLOR_ARGB(20, 255, 0, 255);
 }

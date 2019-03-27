@@ -5,7 +5,7 @@
 class Animation : public Component
 {
 public:
-	enum TYPE { Cube, Negev, UITest, MAXANIMATION, NONE };
+	enum TYPE { Cube, Negev, UITest, MiddleTank, Ground, Hole, BackGround, Bullet_120mm, Bullet_88mm,Explosion ,MAXANIMATION, NONE };
 
 private:
 
@@ -24,6 +24,7 @@ public:
 	D3DXVECTOR2 nowFrame;
 	D3DXVECTOR2 imageSize;
 	D3DXVECTOR2 frameSize;
+	bool end = false;
 
 	void SetType(TYPE type);
 	TYPE GetType();

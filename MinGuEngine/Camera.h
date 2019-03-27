@@ -20,4 +20,7 @@ public:
 	static void Shake(int power);
 	static int radius;
 	static int shake;
+	static void ZoomIn();
+	static void ZoomOut();
+	static D3DXMATRIX camMatrix;
 };

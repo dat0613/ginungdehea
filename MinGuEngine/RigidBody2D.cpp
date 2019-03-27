@@ -9,6 +9,7 @@ RigidBody2D::RigidBody2D()
 	gravityAccel = 0.5f;
 	gravityScale = 0.5f;
 	isAir = true;
+	isTrigger = false;
 }
 
 RigidBody2D::~RigidBody2D()
@@ -58,7 +59,6 @@ void RigidBody2D::xMove()
 	{
 		GetGameObject()->transform->position.x += velocity.x;
 		lastMovex = true;
-		//printf("%f, %f\n", GetGameObject()->transform->position.x, GetGameObject()->transform->position.y);
 	}
 }
 
@@ -68,6 +68,23 @@ void RigidBody2D::yMove()
 	{
 		GetGameObject()->transform->position.y += velocity.y;
 		lastMovey = true;
-		//printf("%f, %f\n", GetGameObject()->transform->position.x, GetGameObject()->transform->position.y);
+	}
+}
+
+void RigidBody2D::xMoveCancle()
+{
+	if (lastMovex)
+	{
+		GetGameObject()->transform->position.x -= velocity.x;
+		lastMovex = false;
+	}
+}
+
+void RigidBody2D::yMoveCancle()
+{
+	if (lastMovey)
+	{
+		GetGameObject()->transform->position.y -= velocity.y;
+		lastMovey = false;
 	}
 }

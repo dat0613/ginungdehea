@@ -13,5 +13,6 @@ public:
 
 	void Awake();
 	void Update();
+	void OnClicking();
 	void OnClick();
 };

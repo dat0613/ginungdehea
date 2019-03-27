@@ -17,14 +17,15 @@ public:
 	bool isAir;
 	bool lastMovex;
 	bool lastMovey;
+	bool isTrigger;
 
 	RigidBody2D();
 	~RigidBody2D();
 	void Update();
 	void Collision();
 	void xMove();
-
-
 	void yMove();
+	void xMoveCancle();
+	void yMoveCancle();
 
 };

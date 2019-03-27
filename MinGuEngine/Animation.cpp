@@ -22,11 +22,18 @@ void Animation::Update()
 		if (nowFrame.x + frameSize.x < imageSize.x)
 		{
 			nowFrame.x += frameSize.x;
+			end = false;
+		}
+		else if (-nowFrame.x  + frameSize.x < imageSize.x)
+		{//	Update 순서때문에 미리 애니메이션이 끝났는지 체크 해야함.
+			end = true;
 		}
 		else
+		{ 
 			nowFrame.x = 0.0f;
+			end = false;
+		}
 	}
-
 }
 
 void Animation::LateUpdate()
@@ -48,16 +55,15 @@ void Animation::SetType(TYPE type)
 
 	imageSize = GraphicManager::get()->GetTextureSize(type);
 	
+	timePerFrame = -1;
+	frameSize = imageSize;
 
 	switch (type)
 	{
-	case Cube:
-	case Negev:
-	case UITest:
-		timePerFrame = -1;
-		frameSize = imageSize;
+	case Animation::TYPE::Explosion:
+		timePerFrame = 30;
+		frameSize = D3DXVECTOR2(200, 200);
 		break;
-
 	}
 }
 

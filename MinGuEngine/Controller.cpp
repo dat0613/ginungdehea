@@ -1,7 +1,8 @@
 #include "Controller.h"
-#include "InputManager.h"
+#include "Input.h"
 #include "GameObject.h"
 #include "Camera.h"
+#include "Bullet.h"
 
 Controller::Controller()
 {
@@ -27,23 +28,37 @@ void Controller::Update()
 	if (!rigidbody2d->isAir)
 	{
 		//rigidbody2d->velocity.y -= 50;
-		//Camera::Shake(rigidbody2d->lastGravity * 10);
+		if(rigidbody2d->lastGravity > 5.0f)
+			Camera::Shake(rigidbody2d->lastGravity * 5.0f);
 	}
 
-	if (InputManager::get()->GetKeyDown(InputManager::KEY::W))
+	if (Input::GetKeyDown(Input::KEY::W))
 	{
-		rigidbody2d->velocity.y -= 100;
+		rigidbody2d->velocity.y -= 50;
+		//rigidbody2d->Collision();
+		rigidbody2d->gravity = 0.0f;
 	}
-	if (InputManager::get()->GetKey(InputManager::KEY::S))
+	if (Input::GetKey(Input::KEY::S))
 	{
 		rigidbody2d->velocity.y += speed;
 	}
-	if (InputManager::get()->GetKey(InputManager::KEY::A))
+	if (Input::GetKey(Input::KEY::A))
 	{
 		rigidbody2d->velocity.x = -speed;
+		GetGameObject()->flip = true;
 	}
-	if (InputManager::get()->GetKey(InputManager::KEY::D))
+	if (Input::GetKey(Input::KEY::D))
 	{
 		rigidbody2d->velocity.x = speed;
+		GetGameObject()->flip = false;
+	}
+	if (Input::GetKeyDown(Input::KEY::SPACE))
+	{
+		auto obj = Instantiate<Bullet>();
+		auto gameObject = GetGameObject();
+		int sign = (gameObject->flip) ? (-1) : (1);
+		obj->SetDir(sign);
+		obj->transform->position = gameObject->transform->position + D3DXVECTOR2(870 * sign, -70) * 0.5f;
+		Camera::Shake(50);
 	}
 }

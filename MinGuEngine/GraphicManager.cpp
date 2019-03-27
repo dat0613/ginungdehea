@@ -1,6 +1,9 @@
 #include "GraphicManager.h"
 #include "Camera.h"
 #include "Info.h"
+#include <algorithm>
+
+using namespace std;
 
 LPDIRECT3DTEXTURE9 GraphicManager::CreateTexture(LPCWSTR file)
 {
@@ -26,42 +29,36 @@ LPDIRECT3DTEXTURE9 GraphicManager::CreateTexture(LPCWSTR file)
 
 void GraphicManager::RenderGameObject(GameObject * gameObject)
 {
-	D3DXMATRIX matrix, CamMatrix, rotationM, positionM, scaleM, center, CamRotation, NCamCenter, PCamCenter;
-	auto position = gameObject->transform->position;
+	D3DXMATRIX matrix, rotationM, positionM, scaleM, center, Pcenter, uiPosition;
 	auto scale = gameObject->transform->scale;
 	auto animation = gameObject->animation;
 	auto frameSize = animation->frameSize;
+	auto position = gameObject->transform->position - (frameSize * 0.5f);
+	auto realPosition = gameObject->transform->position;
+	realPosition.x += SCREENWIDTH * 0.5f;
+	realPosition.y += SCREENHEIGHT * 0.5f;
 	auto rotation = gameObject->transform->rotation;
 
 	auto texture = textureVector[animation->type];
 
+	auto sign = (gameObject->flip) ? (-1) : (1);
+
+	D3DXMatrixScaling(&scaleM, scale * sign, scale, 0.0f);
+	D3DXMatrixTranslation(&positionM, realPosition.x - Camera::position.x, realPosition.y - Camera::position.y, 0.0f);
+	D3DXMatrixTranslation(&center, -frameSize.x * 0.5f, -frameSize.y * 0.5f, 0.0f);
+	D3DXMatrixRotationZ(&rotationM, D3DXToRadian(rotation));
+
+
+
 	if (!gameObject->isUI)
 	{
-
-		D3DXMatrixTranslation(&positionM, position.x * Camera::scope - Camera::position.x * Camera::scope + SCREENWIDTH * 0.5f, position.y * Camera::scope - Camera::position.y * Camera::scope + SCREENHEIGHT * 0.5f, 0.0f);
-		D3DXMatrixTranslation(&center, -frameSize.x * Camera::scope * 0.5f, -frameSize.y * Camera::scope * 0.5f, 0.0f);
-
-		D3DXMatrixTranslation(&NCamCenter, (-frameSize.x * 0.5f + position.x - Camera::position.x), (-frameSize.y *  0.5f + position.y - Camera::position.y), 0.0f);
-		D3DXMatrixTranslation(&PCamCenter, -(-frameSize.x * 0.5f + position.x - Camera::position.x), -(-frameSize.y *  0.5f + position.y - Camera::position.y), 0.0f);
-		D3DXMatrixScaling(&scaleM, scale * Camera::scope, scale * Camera::scope, 0.0f);
-		D3DXMatrixRotationZ(&rotationM, D3DXToRadian(rotation));
-
-		D3DXMatrixRotationZ(&CamRotation, D3DXToRadian(Camera::degree));
-
-
-		CamMatrix = NCamCenter * CamRotation * PCamCenter;
-		matrix = scaleM * center * rotationM * positionM;
-
-		matrix = CamMatrix * matrix;
-
+		matrix = center * scaleM * rotationM * positionM;
+		matrix = matrix * Camera::camMatrix;
 	}
 	else
 	{
-		D3DXMatrixTranslation(&positionM, position.x, position.y, 0.0f);
-		D3DXMatrixTranslation(&center, -frameSize.x * 0.5f, -frameSize.y * 0.5f, 0.0f);
-		D3DXMatrixScaling(&scaleM, scale, scale, 0.0f);
-
-		matrix = scaleM * center * positionM;
+		D3DXMatrixTranslation(&uiPosition, position.x, position.y, 0.0f);
+		matrix = uiPosition;
 	}
 
 	sprite->SetTransform(&matrix);
@@ -83,6 +80,14 @@ GraphicManager::GraphicManager()
 
 }
 
+bool cmp(const GameObject * o1, const GameObject * o2)
+{
+	if (o1->SortingLayer < o2->SortingLayer)
+		return true;
+
+	return false;
+}
+
 void GraphicManager::Init(LPDIRECT3DDEVICE9 device)
 {
 	this->device = device;
@@ -90,13 +95,22 @@ void GraphicManager::Init(LPDIRECT3DDEVICE9 device)
 	D3DXCreateSprite(device, &sprite);
 
 	textureVector.resize(Animation::TYPE::MAXANIMATION);
-	textureVector[Animation::TYPE::Cube] = CreateTexture(L"./Resource/Image/Cube.png");
+	textureVector[Animation::TYPE::Cube] = CreateTexture(L"./Resource/Image/MiddleTank.png");
 	textureVector[Animation::TYPE::Negev] = CreateTexture(L"./Resource/Image/Negev.png");
 	textureVector[Animation::TYPE::UITest] = CreateTexture(L"./Resource/Image/UI.png");
+	textureVector[Animation::TYPE::Hole] = CreateTexture(L"./Resource/Image/Hole.png");
+	textureVector[Animation::TYPE::Ground] = CreateTexture(L"./Resource/Image/Ground.png");
+	textureVector[Animation::TYPE::BackGround] = CreateTexture(L"./Resource/Image/BackGround.png");
+	textureVector[Animation::TYPE::Bullet_120mm] = CreateTexture(L"./Resource/Image/120mm.png");
+	textureVector[Animation::TYPE::Bullet_88mm] = CreateTexture(L"./Resource/Image/88mm.png");
+	textureVector[Animation::TYPE::Explosion] = CreateTexture(L"./Resource/Image/Explosion.png");
 }
 
 void GraphicManager::Render(list<GameObject*>& gameObjectList)
 {
+
+	gameObjectList.sort(cmp);
+
 	for (auto gameObject : gameObjectList)
 	{
 		RenderGameObject(gameObject);

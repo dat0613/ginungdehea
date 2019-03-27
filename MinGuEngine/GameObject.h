@@ -9,6 +9,7 @@
 #include "Transform.h"
 #include "GameManager.h"
 #include "BoxCollider2D.h"
+#include <ctime>
 
 
 using namespace std;
@@ -16,6 +17,8 @@ using namespace std;
 class Component;
 class GameObject
 {
+public:
+	enum Tag{ NONE };
 private:
 
 	map<size_t, Component *> ComponentMap;
@@ -27,7 +30,12 @@ protected:
 
 public:
 
+	Tag tag;
+	int SortingLayer;
+	bool flip;
+
 	template <class T>
+
 
 	T * AddComponent()
 	{
@@ -53,14 +61,14 @@ public:
 
 	GameObject();
 	virtual void Awake();
-	virtual void Update() = 0;
+	virtual void Update();
 	void ComponentUpdate();
 	virtual void LateUpdate();
 	virtual ~GameObject();
 
-	virtual void OnCollisionEnter2D();
-	virtual void OnCollisionStay2D();
-	virtual void OnCollisionExit2D();
+	virtual void OnCollisionEnter2D(GameObject * obj);
+	virtual void OnCollisionStay2D(GameObject * obj);
+	virtual void OnCollisionExit2D(GameObject * obj);
 
 	Transform * transform;
 	Animation * animation;
@@ -68,6 +76,7 @@ public:
 
 	bool destroy;
 	bool isUI;
+
 };
 
 template <class T>

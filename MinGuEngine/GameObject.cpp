@@ -7,11 +7,18 @@ GameObject::GameObject()
 	boxcollider2d = AddComponent<BoxCollider2D>();
 	destroy = false;
 	isUI = false;
+	tag = NONE;
+	SortingLayer = 0;
+	flip = false;
 }
 
 void GameObject::Awake()
 {
 
+}
+
+void GameObject::Update()
+{
 }
 
 void GameObject::ComponentUpdate()
@@ -37,17 +44,17 @@ GameObject::~GameObject()
 	ComponentMap.clear();
 }
 
-void GameObject::OnCollisionEnter2D()
+void GameObject::OnCollisionEnter2D(GameObject * obj)
 {
 
 }
 
-void GameObject::OnCollisionStay2D()
+void GameObject::OnCollisionStay2D(GameObject * obj)
 {
 
 }
 
-void GameObject::OnCollisionExit2D()
+void GameObject::OnCollisionExit2D(GameObject * obj)
 {
 
 }

@@ -1,6 +1,6 @@
 #include "GameManager.h"
 #include "GraphicManager.h"
-#include "InputManager.h"
+#include "Input.h"
 #include "Info.h"
 #include <ctime>
 #include "Camera.h"
@@ -40,7 +40,7 @@ void GameManager::Init(HWND hwnd)
 	srand((unsigned)int(time(NULL)));
 
 	GraphicManager::get()->Init(device);
-	InputManager::get()->Init(hwnd);
+	Input::Init(hwnd);
 
 	nowScene = new Scene_Test();
 	nowScene->Init();
@@ -48,13 +48,13 @@ void GameManager::Init(HWND hwnd)
 
 void GameManager::Update()
 {
-	InputManager::get()->Update();
+	Input::Update();
 	nowScene->AutoCollision();
 	nowScene->AutoUpdate();
 	nowScene->AutoLateUpdate();
 	Camera::Update();
 
-	if (InputManager::get()->GetKeyDown(InputManager::KEY::ESC))
+	if (Input::GetKeyDown(Input::KEY::ESC))
 		exit(1);
 }
 

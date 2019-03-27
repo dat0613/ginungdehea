@@ -3,6 +3,7 @@
 UI::UI()
 {
 	isUI = true;
+	SortingLayer = 1000;
 }
 
 UI::~UI()
@@ -19,6 +20,11 @@ void UI::OnMouse(bool On)
 }
 
 void UI::OnClick()
+{
+
+}
+
+void UI::OnClicking()
 {
 
 }

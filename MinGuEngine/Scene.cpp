@@ -112,7 +112,7 @@ void Scene::CollisionInterpolationy(GameObject * a, GameObject * b)
 	auto velocity = rigidbody2d->velocity;
 
 	int sign = (velocity.y > 0) ? (1) : (-1);
-	
+
 	bool inter = false;
 
 	if (Abs(velocity.y) > 0.001f)
@@ -142,7 +142,7 @@ void Scene::RigidbodyUpdate(GameObject * a)
 
 void Scene::CollisionCheckUI(UI * UI)
 {
-	auto mouse = InputManager::get()->mousePositionScreen;
+	auto mouse = Input::mousePositionScreen;
 
 	RECT rect;
 	rect.left = UI->transform->position.x - UI->boxcollider2d->size.x * 0.5f;
@@ -155,9 +155,14 @@ void Scene::CollisionCheckUI(UI * UI)
 	UI->OnMouse(On);
 	if (On)
 	{
-		if (InputManager::get()->GetKeyDown(InputManager::KEY::MOUSE0))
+		if (Input::GetKeyDown(Input::KEY::MOUSE0))
 		{
 			UI->OnClick();
+		}
+
+		if (Input::GetKey(Input::KEY::MOUSE0))
+		{
+			UI->OnClicking();
 		}
 	}
 
@@ -231,38 +236,57 @@ void Scene::AutoCollision()
 
 	for (auto object1 : gameObjectVector)
 	{
+		auto rigidbody = object1->GetComponent<RigidBody2D>();
+
+		if (rigidbody == nullptr)
+			continue;
+
+
+		rigidbody->xMove();
+		rigidbody->yMove();
+
+
+
 		for (auto object2 : gameObjectVector)
 		{
 			if (object1 != object2)
 			{
 				if (!object1->isUI && !object2->isUI && CollisionCheckAABB(object1, object2))
 				{
-					object1->OnCollisionStay2D();
-					object2->OnCollisionStay2D();
+					object1->OnCollisionStay2D(object2);
+					object2->OnCollisionStay2D(object1);
 				}
 			}
 		}
 
-		auto rigidbody = object1->GetComponent<RigidBody2D>();
+		rigidbody->xMoveCancle();
+		rigidbody->yMoveCancle();
 
-		if (rigidbody != nullptr && rigidbody->bodyType != RigidBody2D::BodyType::Static)
+
+		if (rigidbody->bodyType != RigidBody2D::BodyType::Static && !rigidbody->isTrigger)
 		{// 움직이는 객체들만 세부적인 충돌 보정을 진행함
 			rigidbody->xMove();	// 먼저 x좌표를 움직임
 			for (auto object2 : gameObjectVector)
 			{
-				if (object1 != object2)
+				auto rigidbody2 = object2->GetComponent<RigidBody2D>();
+				if (object1 != object2 && rigidbody2 != nullptr && !rigidbody2->isTrigger)
 				{
+					object1->transform->position.y -= 10;
+
 					if (!object1->isUI && !object2->isUI && CollisionCheckAABB(object1, object2))
-					{// x좌표만 움직인 후 세부 보정
+					{// x좌표만 움직인 후 세부 보정						
 						CollisionUpdate(object1, object2, true);
 					}
+					else
+						object1->transform->position.y += 10;
 				}
 			}
 
 			rigidbody->yMove();	// y자표를 움직임
 			for (auto object2 : gameObjectVector)
 			{
-				if (object1 != object2)
+				auto rigidbody2 = object2->GetComponent<RigidBody2D>();
+				if (object1 != object2 && rigidbody2 != nullptr && !rigidbody2->isTrigger)
 				{
 					if (!object1->isUI && !object2->isUI && CollisionCheckAABB(object1, object2))
 					{// y좌표만 움직인 후 세부 보정
@@ -270,6 +294,12 @@ void Scene::AutoCollision()
 					}
 				}
 			}
+		}
+
+		if (rigidbody->isTrigger)
+		{
+			rigidbody->xMove();
+			rigidbody->yMove();
 		}
 	}
 

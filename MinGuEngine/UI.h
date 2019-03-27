@@ -13,5 +13,6 @@ public:
 
 	void OnMouse(bool On);
 	virtual void OnClick();
+	virtual void OnClicking();
 	void Update();
 };

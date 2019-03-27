@@ -145,16 +145,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="BackGround.h" />
     <ClInclude Include="BoxCollider2D.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="Cube.h" />
+    <ClInclude Include="Explosion.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GraphicManager.h" />
+    <ClInclude Include="Ground.h" />
     <ClInclude Include="Info.h" />
-    <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="MinGuEngine.h" />
     <ClInclude Include="Negev.h" />
     <ClInclude Include="Resource.h" />
@@ -170,15 +174,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="BoxCollider2D.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Cube.cpp" />
+    <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GraphicManager.cpp" />
-    <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Ground.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="MinGuEngine.cpp" />
     <ClCompile Include="Negev.cpp" />
     <ClCompile Include="RigidBody2D.cpp" />
