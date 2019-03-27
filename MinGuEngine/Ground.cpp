@@ -7,7 +7,8 @@ void Ground::Awake()
 {
 	AddComponent<RigidBody2D>()->bodyType = RigidBody2D::Static;
 	animation->SetType(Animation::TYPE::Ground);
-	boxcollider2d->SetColliderSize(860, 170);
+	transform->scale = 5.0f;
+	boxcollider2d->SetColliderSize(860 * transform->scale, 170 * transform->scale);
 }
 
 void Ground::Update()

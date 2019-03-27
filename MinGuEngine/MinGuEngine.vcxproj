@@ -147,11 +147,12 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="BoxCollider2D.h" />
-    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Bullet_120mm.h" />
+    <ClInclude Include="Bullet_88mm.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Controller.h" />
-    <ClInclude Include="Cube.h" />
+    <ClInclude Include="MiddleTank.h" />
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Info.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="MachineGun.h" />
     <ClInclude Include="MinGuEngine.h" />
     <ClInclude Include="Negev.h" />
     <ClInclude Include="Resource.h" />
@@ -168,6 +170,7 @@
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="UITest.h" />
@@ -176,17 +179,19 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="BoxCollider2D.cpp" />
-    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Bullet_120mm.cpp" />
+    <ClCompile Include="Bullet_88mm.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Controller.cpp" />
-    <ClCompile Include="Cube.cpp" />
+    <ClCompile Include="MiddleTank.cpp" />
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GraphicManager.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="MachineGun.cpp" />
     <ClCompile Include="MinGuEngine.cpp" />
     <ClCompile Include="Negev.cpp" />
     <ClCompile Include="RigidBody2D.cpp" />
@@ -198,6 +203,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="UITest.cpp" />

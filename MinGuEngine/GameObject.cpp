@@ -2,8 +2,8 @@
 
 GameObject::GameObject()
 {
-	animation = AddComponent<Animation>();
 	transform = AddComponent<Transform>();
+	animation = AddComponent<Animation>();
 	boxcollider2d = AddComponent<BoxCollider2D>();
 	destroy = false;
 	isUI = false;
@@ -32,6 +32,19 @@ void GameObject::ComponentUpdate()
 void GameObject::LateUpdate()
 {
 
+}
+
+void GameObject::OnDisable()
+{
+
+}
+
+void GameObject::ComponentOnDisable()
+{
+	for (auto comp : ComponentMap)
+	{
+		comp.second->OnDisable();
+	}
 }
 
 GameObject::~GameObject()

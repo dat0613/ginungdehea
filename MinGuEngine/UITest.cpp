@@ -25,7 +25,7 @@ void UITest::Update()
 
 void UITest::OnClicking()
 {
-	Camera::ZoomOut();
+	Camera::ZoomIn();
 }
 
 void UITest::OnClick()

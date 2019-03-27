@@ -45,7 +45,7 @@ void GraphicManager::RenderGameObject(GameObject * gameObject)
 
 	D3DXMatrixScaling(&scaleM, scale * sign, scale, 0.0f);
 	D3DXMatrixTranslation(&positionM, realPosition.x - Camera::position.x, realPosition.y - Camera::position.y, 0.0f);
-	D3DXMatrixTranslation(&center, -frameSize.x * 0.5f, -frameSize.y * 0.5f, 0.0f);
+	D3DXMatrixTranslation(&center, -gameObject->transform->center.x, -gameObject->transform->center.y, 0.0f);
 	D3DXMatrixRotationZ(&rotationM, D3DXToRadian(rotation));
 
 
@@ -95,7 +95,7 @@ void GraphicManager::Init(LPDIRECT3DDEVICE9 device)
 	D3DXCreateSprite(device, &sprite);
 
 	textureVector.resize(Animation::TYPE::MAXANIMATION);
-	textureVector[Animation::TYPE::Cube] = CreateTexture(L"./Resource/Image/MiddleTank.png");
+	textureVector[Animation::TYPE::MiddleTank] = CreateTexture(L"./Resource/Image/MiddleTank.png");
 	textureVector[Animation::TYPE::Negev] = CreateTexture(L"./Resource/Image/Negev.png");
 	textureVector[Animation::TYPE::UITest] = CreateTexture(L"./Resource/Image/UI.png");
 	textureVector[Animation::TYPE::Hole] = CreateTexture(L"./Resource/Image/Hole.png");
@@ -104,6 +104,7 @@ void GraphicManager::Init(LPDIRECT3DDEVICE9 device)
 	textureVector[Animation::TYPE::Bullet_120mm] = CreateTexture(L"./Resource/Image/120mm.png");
 	textureVector[Animation::TYPE::Bullet_88mm] = CreateTexture(L"./Resource/Image/88mm.png");
 	textureVector[Animation::TYPE::Explosion] = CreateTexture(L"./Resource/Image/Explosion.png");
+	textureVector[Animation::TYPE::MachineGun] = CreateTexture(L"./Resource/Image/MachineGun.png");
 }
 
 void GraphicManager::Render(list<GameObject*>& gameObjectList)

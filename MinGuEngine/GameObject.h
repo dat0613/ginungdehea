@@ -64,6 +64,8 @@ public:
 	virtual void Update();
 	void ComponentUpdate();
 	virtual void LateUpdate();
+	virtual void OnDisable();
+	void ComponentOnDisable();
 	virtual ~GameObject();
 
 	virtual void OnCollisionEnter2D(GameObject * obj);

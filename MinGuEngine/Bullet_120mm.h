@@ -1,21 +1,20 @@
 #pragma once
 #include "GameObject.h"
 
-class Bullet : public GameObject
+class Bullet_120mm : public GameObject
 {
 private:
 
 	int dir;
-	clock_t shootTime;
 
 public:
 
-	Bullet();
-	~Bullet();
+	Bullet_120mm();
+	~Bullet_120mm();
 	void Awake();
 	void Update();
+	void OnDisable();
 	void SetDir(int dir);
 	void OnCollisionStay2D(GameObject * obj);
+
 };
-
-

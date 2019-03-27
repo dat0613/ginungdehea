@@ -65,6 +65,8 @@ void Animation::SetType(TYPE type)
 		frameSize = D3DXVECTOR2(200, 200);
 		break;
 	}
+
+	GetGameObject()->transform->center = frameSize * 0.5f;
 }
 
 Animation::TYPE Animation::GetType()

@@ -16,6 +16,7 @@ public:
 	virtual void Awake();
 	virtual void Update() = 0;
 	virtual void LateUpdate();
+	virtual void OnDisable();
 	virtual ~Component();
 
 	void SetGameObject(GameObject * gameObject);

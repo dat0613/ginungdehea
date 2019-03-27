@@ -15,6 +15,11 @@ void Component::LateUpdate()
 
 }
 
+void Component::OnDisable()
+{
+
+}
+
 Component::~Component()
 {
 

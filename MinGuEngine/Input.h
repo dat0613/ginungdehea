@@ -12,7 +12,7 @@ static class Input
 {
 public:
 
-	static enum KEY { MOUSE0,  MOUSE1, W, A, S, D,LEFT ,RIGHT, UP, DOWN,  SPACE,ESC ,MAXKEY };
+	static enum KEY { MOUSE0,  MOUSE1, W, A, S, D,LEFT ,RIGHT, UP, DOWN, Z, X, C,  SPACE,ESC ,MAXKEY };
 
 private:
 

@@ -13,6 +13,7 @@ public:
 	D3DXVECTOR2 position;
 	float rotation;
 	float scale;
+	D3DXVECTOR2 center;
 
 	Transform();
 	void Update();

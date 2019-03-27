@@ -185,6 +185,8 @@ void Scene::AutoUpdate()
 		if (obj->destroy)
 		{
 			gameObjectList.erase(it--);
+			obj->OnDisable();
+			obj->ComponentOnDisable();
 			delete obj;
 		}
 		else

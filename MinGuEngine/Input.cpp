@@ -32,7 +32,9 @@ void Input::Init(HWND hwnd)
 	keyVector[KEY::DOWN]->keyCode = VK_DOWN;
 	keyVector[KEY::SPACE]->keyCode = VK_SPACE;
 	keyVector[KEY::ESC]->keyCode = VK_ESCAPE;
-
+	keyVector[KEY::Z]->keyCode = 'Z';
+	keyVector[KEY::X]->keyCode = 'X';
+	keyVector[KEY::C]->keyCode = 'C';
 }
 
 void Input::Update()

@@ -41,7 +41,9 @@ void Camera::Update()
 		return;
 
 	auto targetPos = target->transform->position;
-	targetPos.y = -730.0f;
+	targetPos.y = -1000.0f;
+	auto sign = (target->flip) ? (-1) : 1;
+	targetPos.x += 1000.0f * sign;
 	auto diff = position - targetPos;
 	diff *= -0.1f;
 
@@ -57,10 +59,10 @@ void Camera::Shake(int power)
 
 void Camera::ZoomIn()
 {
-	scope -= (scope * 0.05f);
+	scope += (scope * 0.05f);
 }
 
 void Camera::ZoomOut()
 {
-	scope += (scope * 0.05f);
+	scope -= (scope * 0.05f);
 }
