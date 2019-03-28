@@ -5,16 +5,20 @@
 
 void Bullet_88mm::Awake()
 {
-	auto rigidbody = AddComponent<RigidBody2D>()->bodyType = RigidBody2D::BodyType::Kinematic;
 	animation->SetType(Animation::TYPE::Bullet_88mm);
-	AddComponent<Timer>()->SetTimer(2500);
+	AddComponent<Timer>()->SetTimer(1000);
 	transform->scale = 0.3f;
 	SortingLayer = 5;
 }
 
 void Bullet_88mm::Update()
 {
+	transform->position += direction * 150.0f;
+}
 
+void Bullet_88mm::SetDir(D3DXVECTOR2 dir)
+{
+	direction = dir;
 }
 
 Bullet_88mm::Bullet_88mm()

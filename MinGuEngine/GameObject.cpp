@@ -25,7 +25,10 @@ void GameObject::ComponentUpdate()
 {
 	for (auto comp : ComponentMap)
 	{
-		comp.second->Update();
+		if (!comp.second->destroy)
+			comp.second->Update();
+		else
+			ComponentMap.erase(comp.first);
 	}
 }
 

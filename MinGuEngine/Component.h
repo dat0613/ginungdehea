@@ -18,6 +18,7 @@ public:
 	virtual void LateUpdate();
 	virtual void OnDisable();
 	virtual ~Component();
+	bool destroy;
 
 	void SetGameObject(GameObject * gameObject);
 	GameObject * GetGameObject();

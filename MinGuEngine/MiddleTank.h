@@ -12,7 +12,9 @@ public:
 	MiddleTank();
 	void Update();
 	~MiddleTank();
-	void OnCollisionStay2D();
+	float speed;
+	float bulletSpeed;
+	void OnCollisionStay2D(GameObject * obj);
 	MachineGun * machineGun;
 	
 };

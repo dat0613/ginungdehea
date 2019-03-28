@@ -11,6 +11,7 @@ public:
 
 	Bullet_120mm();
 	~Bullet_120mm();
+	float speed;
 	void Awake();
 	void Update();
 	void OnDisable();

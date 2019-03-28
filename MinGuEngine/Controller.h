@@ -13,6 +13,12 @@ private:
 	RigidBody2D *rigidbody2d;
 	MiddleTank *tank;
 
+	clock_t lastShoot;
+	clock_t coolTime;
+
+	float leftRotationLimit;
+	float rightRotaionLimit;
+
 public:
 
 	Controller();

@@ -105,11 +105,14 @@ void GraphicManager::Init(LPDIRECT3DDEVICE9 device)
 	textureVector[Animation::TYPE::Bullet_88mm] = CreateTexture(L"./Resource/Image/88mm.png");
 	textureVector[Animation::TYPE::Explosion] = CreateTexture(L"./Resource/Image/Explosion.png");
 	textureVector[Animation::TYPE::MachineGun] = CreateTexture(L"./Resource/Image/MachineGun.png");
+	textureVector[Animation::TYPE::SpeedUP] = CreateTexture(L"./Resource/Image/SpeedUP.png");
+	textureVector[Animation::TYPE::RangeUP] = CreateTexture(L"./Resource/Image/RangeUP.png");
+	textureVector[Animation::TYPE::DoubleJump] = CreateTexture(L"./Resource/Image/DoubleJump.png");
+	textureVector[Animation::TYPE::SpeedUpEffect] = CreateTexture(L"./Resource/Image/SpeedUpEffect.png");
 }
 
 void GraphicManager::Render(list<GameObject*>& gameObjectList)
 {
-
 	gameObjectList.sort(cmp);
 
 	for (auto gameObject : gameObjectList)

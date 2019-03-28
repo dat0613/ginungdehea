@@ -5,7 +5,10 @@
 class Animation : public Component
 {
 public:
-	enum TYPE { Cube, Negev, UITest, MiddleTank, Ground, Hole, BackGround, Bullet_120mm, Bullet_88mm,Explosion, MachineGun, MAXANIMATION, NONE };
+	enum TYPE {
+		Cube, Negev, UITest, MiddleTank, Ground, Hole, BackGround, Bullet_120mm, Bullet_88mm, Explosion,
+		MachineGun, SpeedUP, RangeUP, DoubleJump, SpeedUpEffect, MAXANIMATION, NONE
+	};
 
 private:
 

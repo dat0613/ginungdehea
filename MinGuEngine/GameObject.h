@@ -18,7 +18,7 @@ class Component;
 class GameObject
 {
 public:
-	enum Tag{ NONE };
+	enum Tag{ ground ,MiddleTank, NONE };
 private:
 
 	map<size_t, Component *> ComponentMap;

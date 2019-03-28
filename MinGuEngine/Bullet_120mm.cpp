@@ -26,13 +26,15 @@ void Bullet_120mm::Awake()
 
 	boxcollider2d->SetColliderSize(476.0f * transform->scale, 83.0f * transform->scale);
 
-	dir = 1;
+	SortingLayer = 5;
+	speed = 0.0f;
 
+	dir = 1;
 }
 
 void Bullet_120mm::Update()
 {
-	transform->position.x += 150.0f * dir;
+	transform->position.x += speed * dir;
 }
 
 void Bullet_120mm::OnDisable()
@@ -48,5 +50,6 @@ void Bullet_120mm::SetDir(int dir)
 
 void Bullet_120mm::OnCollisionStay2D(GameObject * obj)
 {
-	destroy = true;
+	if(obj->tag == ground)
+		destroy = true;	
 }

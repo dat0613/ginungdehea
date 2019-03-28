@@ -3,6 +3,7 @@
 Component::Component()
 {
 	this->gameObject = nullptr;
+	this->destroy = false;
 }
 
 void Component::Awake()

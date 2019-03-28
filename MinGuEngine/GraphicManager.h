@@ -28,5 +28,4 @@ public:
 	LPDIRECT3DTEXTURE9 GetTexture(Animation::TYPE type);
 	D3DXVECTOR2 GetTextureSize(Animation::TYPE type);
 	~GraphicManager();
-
 };

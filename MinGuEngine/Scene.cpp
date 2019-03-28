@@ -248,7 +248,6 @@ void Scene::AutoCollision()
 		rigidbody->yMove();
 
 
-
 		for (auto object2 : gameObjectVector)
 		{
 			if (object1 != object2)
@@ -273,14 +272,14 @@ void Scene::AutoCollision()
 				auto rigidbody2 = object2->GetComponent<RigidBody2D>();
 				if (object1 != object2 && rigidbody2 != nullptr && !rigidbody2->isTrigger)
 				{
-					object1->transform->position.y -= 10;
+					object1->transform->position.y -= 20;
 
 					if (!object1->isUI && !object2->isUI && CollisionCheckAABB(object1, object2))
 					{// x좌표만 움직인 후 세부 보정						
 						CollisionUpdate(object1, object2, true);
 					}
 					else
-						object1->transform->position.y += 10;
+						object1->transform->position.y += 20;
 				}
 			}
 

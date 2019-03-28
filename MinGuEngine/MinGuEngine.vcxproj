@@ -152,6 +152,8 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemEffect.h" />
     <ClInclude Include="MiddleTank.h" />
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="GameManager.h" />
@@ -184,6 +186,8 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemEffect.cpp" />
     <ClCompile Include="MiddleTank.cpp" />
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="GameManager.cpp" />

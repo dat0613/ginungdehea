@@ -64,6 +64,11 @@ void Animation::SetType(TYPE type)
 		timePerFrame = 30;
 		frameSize = D3DXVECTOR2(200, 200);
 		break;
+
+	case Animation::TYPE::SpeedUpEffect:
+		timePerFrame = 70;
+		frameSize = D3DXVECTOR2(256, 128);
+		break;
 	}
 
 	GetGameObject()->transform->center = frameSize * 0.5f;

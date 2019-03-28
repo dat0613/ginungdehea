@@ -10,13 +10,16 @@ MiddleTank::MiddleTank()
 	AddComponent<RigidBody2D>()->bodyType = RigidBody2D::Dynamic;
 	animation->SetType(Animation::TYPE::MiddleTank);
 	Camera::target = this;
-	boxcollider2d->SetColliderSize(997, 532);
+	boxcollider2d->SetColliderSize(997, 363);
 	//transform->position = { SCREENWIDTH * 0.5f, SCREENHEIGHT * 0.5f };
 	machineGun = Instantiate<MachineGun>();
 	machineGun->tank = this;
 
 	AddComponent<Controller>();
 	SortingLayer = 3;
+	speed = 30.0f;
+	bulletSpeed = 80.0f;
+	tag = Tag::MiddleTank;
 }
 
 void MiddleTank::Update()
@@ -58,7 +61,7 @@ MiddleTank::~MiddleTank()
 
 }
 
-void MiddleTank::OnCollisionStay2D()
+void MiddleTank::OnCollisionStay2D(GameObject * obj)
 {
 
 }
