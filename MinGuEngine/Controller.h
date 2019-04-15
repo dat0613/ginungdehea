@@ -18,6 +18,7 @@ private:
 
 	float leftRotationLimit;
 	float rightRotaionLimit;
+	int jumpCount;
 
 public:
 

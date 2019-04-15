@@ -156,6 +156,15 @@
     <ClInclude Include="ItemEffect.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Cloud.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="UFOsimple.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -240,6 +249,15 @@
       <Filter>소스 파일\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="ItemEffect.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Cloud.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UFOsimple.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

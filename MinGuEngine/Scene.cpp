@@ -191,8 +191,8 @@ void Scene::AutoUpdate()
 		}
 		else
 		{
-			obj->ComponentUpdate();
 			obj->Update();
+			obj->ComponentUpdate();
 		}
 	}
 }

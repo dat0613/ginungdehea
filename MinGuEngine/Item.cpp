@@ -37,7 +37,11 @@ void Item::OnCollisionStay2D(GameObject * obj)
 		}
 		if (animation->type == Animation::TYPE::DoubleJump)
 		{
-			
+			tank->GetDoubleJumpItem();
+		}
+		if (animation->type == Animation::TYPE::TripleShot)
+		{
+			tank->GetTripleShotItem();
 		}
 	}
 }

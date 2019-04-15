@@ -16,9 +16,11 @@ void ItemEffect::Update()
 
 ItemEffect::ItemEffect()
 {
+
 }
 
 
 ItemEffect::~ItemEffect()
 {
+
 }

@@ -66,7 +66,7 @@ void Animation::SetType(TYPE type)
 		break;
 
 	case Animation::TYPE::SpeedUpEffect:
-		timePerFrame = 70;
+		timePerFrame = 80;
 		frameSize = D3DXVECTOR2(256, 128);
 		break;
 	}

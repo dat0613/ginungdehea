@@ -150,8 +150,10 @@
     <ClInclude Include="Bullet_120mm.h" />
     <ClInclude Include="Bullet_88mm.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Cloud.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemEffect.h" />
     <ClInclude Include="MiddleTank.h" />
@@ -174,6 +176,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Transform.h" />
+    <ClInclude Include="UFOsimple.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="UITest.h" />
   </ItemGroup>
@@ -184,8 +187,10 @@
     <ClCompile Include="Bullet_120mm.cpp" />
     <ClCompile Include="Bullet_88mm.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Cloud.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemEffect.cpp" />
     <ClCompile Include="MiddleTank.cpp" />
@@ -209,6 +214,7 @@
     </ClCompile>
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="UFOsimple.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="UITest.cpp" />
   </ItemGroup>

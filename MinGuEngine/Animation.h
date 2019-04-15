@@ -7,7 +7,8 @@ class Animation : public Component
 public:
 	enum TYPE {
 		Cube, Negev, UITest, MiddleTank, Ground, Hole, BackGround, Bullet_120mm, Bullet_88mm, Explosion,
-		MachineGun, SpeedUP, RangeUP, DoubleJump, SpeedUpEffect, MAXANIMATION, NONE
+		MachineGun, SpeedUP, RangeUP, DoubleJump, TripleShot, SpeedUpEffect, Cloud1, Cloud2, Cloud3, 
+		UFO1, UFO2, MAXANIMATION, NONE
 	};
 
 private:

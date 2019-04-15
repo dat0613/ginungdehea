@@ -24,6 +24,8 @@ void Controller::Awake()
 
 	leftRotationLimit = -180.0f;
 	rightRotaionLimit = 0.0f;
+
+	jumpCount = tank->jumpMaximum;
 }
 
 
@@ -34,18 +36,19 @@ void Controller::Update()
 	float rotationSpeed = 7.0f;
 	float slope = 20.0f;
 
-	if (!rigidbody2d->isAir)
+	if (Input::GetKey(Input::KEY::MOUSE0))
 	{
-		//rigidbody2d->velocity.y -= 50;
-		if (rigidbody2d->lastGravity > 5.0f)
-			Camera::Shake(rigidbody2d->lastGravity * 5.0f);
+		Camera::ZoomIn();
+	}
+
+	if (Input::GetKey(Input::KEY::MOUSE1))
+	{
+		Camera::ZoomOut();
 	}
 
 	if (Input::GetKeyDown(Input::KEY::C))
 	{
-		rigidbody2d->velocity.y -= 50;
-		//rigidbody2d->Collision();
-		rigidbody2d->gravity = 0.0f;
+		tank->Jump();
 	}
 
 	if (Input::GetKey(Input::KEY::UP))
@@ -64,11 +67,6 @@ void Controller::Update()
 	{
 		leftRotationLimit = -180.0f;
 		rightRotaionLimit = 0.0f;
-	}
-
-	if (Input::GetKey(Input::KEY::DOWN))
-	{
-
 	}
 
 	if (Input::GetKey(Input::KEY::LEFT))

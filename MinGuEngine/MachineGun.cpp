@@ -18,8 +18,16 @@ void MachineGun::Update()
 {
 	if (burst > 0 && coolTime + lastShoot < clock())
 	{
-		float three = -10;
-		for (int i = 0; i < 3; i++)
+		float three = 0;
+		int count = 1;
+		
+		if (tank->tripleShot)
+		{
+			three = -10;
+			count = 3;
+		}
+
+		for (int i = 0; i < count; i++)
 		{
 			auto rebound = (rand() % 3) - 1 + three;
 			auto rad = D3DXToRadian(transform->rotation + rebound);
@@ -58,5 +66,5 @@ MachineGun::~MachineGun()
 
 void MachineGun::Shot()
 {
-	burst += 3;
+	burst += 2;
 }

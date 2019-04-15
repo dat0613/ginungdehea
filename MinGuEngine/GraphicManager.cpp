@@ -108,7 +108,13 @@ void GraphicManager::Init(LPDIRECT3DDEVICE9 device)
 	textureVector[Animation::TYPE::SpeedUP] = CreateTexture(L"./Resource/Image/SpeedUP.png");
 	textureVector[Animation::TYPE::RangeUP] = CreateTexture(L"./Resource/Image/RangeUP.png");
 	textureVector[Animation::TYPE::DoubleJump] = CreateTexture(L"./Resource/Image/DoubleJump.png");
+	textureVector[Animation::TYPE::TripleShot] = CreateTexture(L"./Resource/Image/TripleShot.png");
 	textureVector[Animation::TYPE::SpeedUpEffect] = CreateTexture(L"./Resource/Image/SpeedUpEffect.png");
+	textureVector[Animation::TYPE::Cloud1] = CreateTexture(L"./Resource/Image/Cloud1.png");
+	textureVector[Animation::TYPE::Cloud2] = CreateTexture(L"./Resource/Image/Cloud2.png");
+	textureVector[Animation::TYPE::Cloud3] = CreateTexture(L"./Resource/Image/Cloud3.png");
+	textureVector[Animation::TYPE::UFO1] = CreateTexture(L"./Resource/Image/UFO1.png");
+	textureVector[Animation::TYPE::UFO2] = CreateTexture(L"./Resource/Image/UFO2.png");
 }
 
 void GraphicManager::Render(list<GameObject*>& gameObjectList)
